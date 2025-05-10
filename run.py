@@ -20,7 +20,6 @@ country_rates = SHEET.worksheet('imported_rates')
 
 data = country_rates.get_all_values()
 
-print(data)
 
 # Convert sheet data to list dictionaries
 headers = data [0]
@@ -65,8 +64,11 @@ insurance_cost = float(input("Enter insurance cost (in USD): "))
 #Calculating CIF (Cost, Insurance, and Freight)
 cif_total = product_value + shipping_cost + insurance_cost
 
-import_duty = cif_total * country_info['duty']
+print("DEBUG: country_info keys ->", country_info.keys())
+print("DEBUG: full country_info ->", country_info)
+
+import_duty = cif_total * float(country_info['duty_rate'])
 
 print(f"\n CIF Total: ${cif_total:.2f}")
-print(f"\n Import Duty: ${cif_duty:.2f}")
-          
+print(f"Import Duty: ${import_duty:.2f}")
+
