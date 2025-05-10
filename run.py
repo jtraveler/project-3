@@ -64,11 +64,26 @@ insurance_cost = float(input("Enter insurance cost (in USD): "))
 #Calculating CIF (Cost, Insurance, and Freight)
 cif_total = product_value + shipping_cost + insurance_cost
 
-print("DEBUG: country_info keys ->", country_info.keys())
-print("DEBUG: full country_info ->", country_info)
-
 import_duty = cif_total * float(country_info['duty_rate'])
 
-print(f"\n CIF Total: ${cif_total:.2f}")
+#Calculating MPF (Merchandise Processing Fee )
+mpf_percent = float(country_info['mpf_percent'])
+mpf_min = float(country_info['mpf_min'])
+mpf_max = float(country_info['mpf_max'])
+mpf = max(min(cif_total * mpf_percent, mpf_max), mpf_min)
+
+
+#Calculate HMF (Harbor Maintenance Fee)
+harbor_fee_rate = float(country_info['harbor_fee'])
+hmf = cif_total * harbor_fee_rate
+
+
+print(f"\nCIF total: ${cif_total:.2f}")
 print(f"Import Duty: ${import_duty:.2f}")
+print(f"MPF (Processing Fee): ${mpf:.2f}")
+print(f"HMF (Harbor Fee): ${hmf:.2f}")
+
+
+
+
 
