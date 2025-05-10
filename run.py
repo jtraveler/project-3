@@ -16,8 +16,8 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('code-institute-project3-import_rates')
 
-sales = SHEET.worksheet('imported_rates')
+country_rates = SHEET.worksheet('imported_rates')
 
-data = sales.get_all_values()
+data_test = country_rates.get_all_values()
 
-print(data)
+print(data_test)
