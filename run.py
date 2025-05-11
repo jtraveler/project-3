@@ -83,7 +83,13 @@ print(f"Import Duty: ${import_duty:.2f}")
 print(f"MPF (Processing Fee): ${mpf:.2f}")
 print(f"HMF (Harbor Fee): ${hmf:.2f}")
 
+#Calculate VAT (Value Added Tax)
+vat_rate = float(country_info['vat'])
+vat = (cif_total + import_duty + mpf + hmf) * vat_rate
 
+#Calulating landed cost
+landed_cost = cif_total + import_duty + mpf + hmf + vat
 
-
-
+#Print VAT and Total
+print(f"VAT: ${vat:.2f}")
+print(f"Total Landed Cost: ${total_landed_price:.2f}")
