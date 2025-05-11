@@ -36,7 +36,10 @@ def load_import_data():
             value = row[set]
             #Try converting numbers if possible
             try:
-                value = float(value) if value not in ['TRUE', 'FALSE'] else value
+                if value == '':
+                    value = 0.0
+                elif value not in ['TRUE', 'FALSE']:
+                      value = float(value)
             except ValueError:
                 pass
             country_dict[key] = value
