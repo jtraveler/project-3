@@ -17,7 +17,7 @@ hs_codes = load_hs_codes()
 
 #Run the main duty/tax calculation flow based on user inputs
 while True:
-    calculate_landed_cost(structured_data)
+    calculate_landed_cost(structured_data, hs_codes)
 
     again = input("\nWould you like to calculate another shipment? (yes/no): ").strip()
     if again not in ['yes', 'y']:

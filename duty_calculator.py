@@ -1,4 +1,4 @@
-def calculate_landed_cost(structured_data):
+def calculate_landed_cost(structured_data, hs_codes):
     #Prompt user input
     print("\nAvailable countries:")
     for entry in structured_data:
@@ -21,6 +21,25 @@ def calculate_landed_cost(structured_data):
 
     #Find matching country data
     country_info = next(entry for entry in structured_data if entry['country_code'] == selected_country)
+
+
+
+    #Ask the user if they want to select an HS code
+    use_hs = input("\nWould you like to use a sample HS code to override the duty rate? (yes/no): ").strip().lower()
+
+    if use_hs in ['yes', 'y']:
+        print("\nAvailable HS codes:")
+        for index, hs in enumerate(hs_codes):
+            print(f"{index+1}. {hs['hs_code']} - {hs['description']} ({hs['duty_rate']} rate)")
+
+        #Let user select HS code
+        try:
+            select_index = int(input("\nEnter the number of the HS code to use (e.g 1): "))
+            selected_hs = hs_codes[selected_index]
+            country_info['duty_rate'] = float(selected_hs['duty_rate'])
+            print(f"Using HS code: {selected_hs['hs_code']} with rate {selected_hs['duty_rate']}")
+        except:
+            print("Invalid HS code selection, Continuing with default duty rate.")
 
 
     #Numeric input helper
@@ -72,7 +91,7 @@ def calculate_landed_cost(structured_data):
 
     #Print VAT and Total
     print(f"VAT: ${vat:.2f}")
-    print(f"--------------------------------------")
+    print("\n--------------------------------------")
     print(f"\nTotal Landed Cost: ${landed_cost:.2f}\n")
 
     
