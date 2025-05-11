@@ -45,3 +45,25 @@ def load_import_data():
             country_dict[key] = value
         structured_data.append(country_dict)
     return structured_data
+
+def load_hs_codes():
+    """
+    Loads HS code data from the 'hs_codes' tab in the same Google Sheet.
+    Returns a list of dictionaries with hs_code, description, and duty_rate.
+
+    """
+
+    SCOPE = [
+        "https://www.googleapis.com/auth/spreadsheets",
+        "https://www.googleapis.com/auth/drive.file",
+        "https://www.googleapis.com/auth/drive"
+        ]
+
+    CREDS = Credentials.from_service_account_file('creds.json')
+    SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+    GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+
+    hs_sheet = GSPREAD_CLIENT.open('code-institute-project3-import_rates').worksheet('hs_codes')
+    hs_data = hs_sheet.get_all_records()
+
+    return hs_data

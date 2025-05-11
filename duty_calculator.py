@@ -39,7 +39,7 @@ def calculate_landed_cost(structured_data):
     #Ask for product cost inputs
     product_value = get_positive_float("\nEnter product value (in USD): ")
     shipping_cost = get_positive_float("Enter shipping cost (in USD): ")
-    insurance_cost = get_positive_float("Enter shipping cost (in USD): ")
+    insurance_cost = get_positive_float("Enter insurance cost (in USD): ")
 
 
     #Calculating CIF (Cost, Insurance, and Freight)

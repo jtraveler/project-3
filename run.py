@@ -7,11 +7,13 @@
 
 
 # Import and load structured country rate data from Google Sheets
-from import_rates import load_import_data
+from import_rates import load_import_data, load_hs_codes
 from duty_calculator import calculate_landed_cost
+
 
 #Load structured import rate data from Google Sheets
 structured_data = load_import_data()
+hs_codes = load_hs_codes()
 
 #Run the main duty/tax calculation flow based on user inputs
 while True:
@@ -19,6 +21,6 @@ while True:
 
     again = input("\nWould you like to calculate another shipment? (yes/no): ").strip()
     if again not in ['yes', 'y']:
-        print("Thank for using the Import Duty Calculator. Goodbye!")
+        print("Thanks for using the Import Duty Calculator. Goodbye!")
         break
 
