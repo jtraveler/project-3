@@ -14,5 +14,11 @@ from duty_calculator import calculate_landed_cost
 structured_data = load_import_data()
 
 #Run the main duty/tax calculation flow based on user inputs
-calculate_landed_cost(structured_data)
+while True:
+    calculate_landed_cost(structured_data)
+
+    again = input("\nWould you like to calculate another shipment? (yes/no): ").strip()
+    if again not in ['yes', 'y']:
+        print("Thank for using the Import Duty Calculator. Goodbye!")
+        break
 

@@ -11,9 +11,9 @@ def calculate_landed_cost(structured_data):
     selected_country = ""
 
     while selected_country not in valid_country_codes:
-        selected_country = input("\nPlease enter a destination country code (e.g. US: )").upper()
+        selected_country = input("\nPlease enter a destination country code (e.g. US) ").upper()
         if selected_country.lower() == 'exit':
-            print("\nExiting calculator, good bye")
+            print("\nExiting calculator. Goodbye!")
             return
         if selected_country not in valid_country_codes:
             print('\nSorry, that\'s an invalid country code. Please try again or type "exit" to end cycle')
@@ -39,7 +39,7 @@ def calculate_landed_cost(structured_data):
     #Ask for product cost inputs
     product_value = get_positive_float("\nEnter product value (in USD): ")
     shipping_cost = get_positive_float("Enter shipping cost (in USD): ")
-    insurance_cost = get_positive_float("Enter insurance cost (in USD): ")
+    insurance_cost = get_positive_float("Enter shipping cost (in USD): ")
 
 
     #Calculating CIF (Cost, Insurance, and Freight)
