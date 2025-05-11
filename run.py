@@ -92,4 +92,4 @@ landed_cost = cif_total + import_duty + mpf + hmf + vat
 
 #Print VAT and Total
 print(f"VAT: ${vat:.2f}")
-print(f"Total Landed Cost: ${total_landed_price:.2f}")
+print(f"Total Landed Cost: ${landed_cost:.2f}")
