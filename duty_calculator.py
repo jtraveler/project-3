@@ -1,4 +1,8 @@
 def calculate_landed_cost(structured_data, hs_codes):
+    #Intro and setting explaining how it works
+    print("\nWelcome to the Import Duty Calculator!")
+    print("This calculator assumes you are importing goods INTO the U.S. from another country.")
+
     #Prompt user input
     print("\nAvailable countries:")
     for entry in structured_data:
