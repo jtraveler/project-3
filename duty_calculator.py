@@ -13,6 +13,17 @@ def calculate_landed_cost(structured_data, hs_codes):
 
     valid_country_codes = [entry['country_code'] for entry in structured_data]
     
+    #Get origin country
+    origin_country = ""
+    while origin_country not in valid_country_codes:
+        origin_country = input("Enter the ORIGIN country code (e.g DE): ").upper()
+        if origin_country.lower() == 'exit':
+            print("\nExiting calculator. Goodbye!")
+            return
+        if origin_country not in valid_country_codes:
+            print('\nInvalid code. Please try again or type "exit" to quit')
+
+
     #Get destination country
     destination_country = ""
     while destination_country not in valid_country_codes:
@@ -23,15 +34,11 @@ def calculate_landed_cost(structured_data, hs_codes):
         if destination_country not in valid_country_codes:
             print('\nInvalid code. Please try again or type "exit" to quit.')
 
-    #Get origin country
-    origin_country = ""
-    while origin_country not in valid_country_codes:
-        origin_country = input("Enter the ORIGIN country code (e.g DE): ").upper()
-        if origin_country.lower() == 'exit':
-            print("\nExiting calculator. Goodbye!")
-            return
-        if origin_country not in valid_country_codes:
-            print('\nInvalid code. Please try again or type "exit" to quit')
+    #Warn and skip if orgin is same as destination
+    if origin_country == destination_country:
+        print("\nWARNING: Origin and destination country are the same.")
+        print("Sorry, this calculator is intended for international imports only.")
+        return
 
     #Load destination country info
     country_info = next(entry for entry in structured_data if entry['country_code'] == destination_country)
