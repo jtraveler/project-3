@@ -35,12 +35,16 @@ def calculate_landed_cost(structured_data, hs_codes):
         #Let user select HS code
         try:
             select_index = int(input("\nEnter the number of the HS code to use (e.g 1): "))
-            selected_hs = hs_codes[selected_index]
-            country_info['duty_rate'] = float(selected_hs['duty_rate'])
-            print(f"Using HS code: {selected_hs['hs_code']} with rate {selected_hs['duty_rate']}")
-        except:
-            print("Invalid HS code selection, Continuing with default duty rate.")
-
+            if 1 <= select_index <= len(hs_codes):
+                selected_hs = hs_codes[select_index - 1]  
+                country_info['duty_rate'] = float(selected_hs['duty_rate'])
+                print(f"Using HS code: {selected_hs['hs_code']} with rate {selected_hs['duty_rate']}")
+            else:
+                print("That number is not in the list. Continuing with default duty rate.")
+        except ValueError:
+            print("Invalid HS code selection. Continuing with default duty rate.")  
+            
+            
 
     #Numeric input helper
     def get_positive_float(prompt):
@@ -86,12 +90,12 @@ def calculate_landed_cost(structured_data, hs_codes):
     vat_rate = float(country_info['vat_rate'])
     vat = (cif_total + import_duty + mpf + hmf) * vat_rate
 
-    #Calulating landed cost
+    #Calculating landed cost
     landed_cost = cif_total + import_duty + mpf + hmf + vat
 
     #Print VAT and Total
     print(f"VAT: ${vat:.2f}")
     print("\n--------------------------------------")
-    print(f"\nTotal Landed Cost: ${landed_cost:.2f}\n")
+    print(f"\nTotal Landed Cost: ${landed_cost:,.2f}\n")
 
     
