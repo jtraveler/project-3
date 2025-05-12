@@ -37,7 +37,7 @@ def calculate_landed_cost(structured_data, hs_codes):
     country_info = next(entry for entry in structured_data if entry['country_code'] == destination_country)
 
     #Print trade route
-    print(f"\nRoute: {orgin_country} → {destination_country}")
+    print(f"\nRoute: {origin_country} → {destination_country}")
 
     #Ask the user if they want to select an HS code
     use_hs = input("\nWould you like to use a sample HS code to override the duty rate? (yes/no): ").strip().lower()
@@ -51,7 +51,7 @@ def calculate_landed_cost(structured_data, hs_codes):
         try:
             select_index = int(input("\nEnter the number of the HS code to use (e.g 1): "))
             if 1 <= select_index <= len(hs_codes):
-                selected_hs = hs_codes[select_index]  
+                selected_hs = hs_codes[select_index - 1]  
                 country_info['duty_rate'] = float(selected_hs['duty_rate'])
                 print(f"Using HS code: {selected_hs['hs_code']} with rate {selected_hs['duty_rate']}")
             else:
