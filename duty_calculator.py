@@ -109,10 +109,10 @@ def calculate_landed_cost(structured_data, hs_codes):
     #Calculate HMF (Harbor Maintenance Fee)
     harbor_fee_rate = float(country_info['harbor_fee'])
     hmf = cif_total * harbor_fee_rate
-    print(f"\nCIF total: ${cif_total:.2f}")
-    print(f"Import Duty: ${import_duty:.2f}")
-    print(f"MPF (Processing Fee): ${mpf:.2f}")
-    print(f"HMF (Harbor Fee): ${hmf:.2f}")
+    print(f"\nCIF total: ${cif_total:,.2f}")
+    print(f"Import Duty: ${import_duty:,.2f}")
+    print(f"MPF (Processing Fee): ${mpf:,.2f}")
+    print(f"HMF (Harbor Fee): ${hmf:,.2f}")
 
     #Calculate VAT (Value Added Tax)
     vat_rate = float(country_info['vat_rate'])
@@ -122,7 +122,7 @@ def calculate_landed_cost(structured_data, hs_codes):
     landed_cost = cif_total + import_duty + mpf + hmf + vat
 
     #Print VAT and Total
-    print(f"VAT: ${vat:.2f}")
+    print(f"VAT: ${vat:,.2f}")
     print("\n--------------------------------------")
     print(f"\nTotal Landed Cost: ${landed_cost:,.2f}\n")
 
