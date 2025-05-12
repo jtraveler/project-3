@@ -39,6 +39,12 @@ def calculate_landed_cost(structured_data, hs_codes):
     #Print trade route
     print(f"\nRoute: {origin_country} → {destination_country}")
 
+    #Apply FTA (Free Trade Agreement) override if it applies
+    if origin_country =='MX' and destination_country == 'US' and country_info/get('fta_eligible', False):
+        print("FTA (Free Trade Agreement) applied: Import duty waived.")
+        country_info['duty_rate'] = 0.0
+
+
     #Ask the user if they want to select an HS code
     use_hs = input("\nWould you like to use a sample HS code to override the duty rate? (yes/no): ").strip().lower()
 
