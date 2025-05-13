@@ -1,6 +1,25 @@
+# Numeric input helper
+  def get_positive_float(prompt):
+      """
+      Prompt for a non-negative numeric input.
+      Repeats until the user provides valid float input ≥ 0.
+      """
+      while True:
+          try:
+              value = float(input(prompt))
+              if value < 0:
+                  print("\nPlease enter a non-negative number.")
+              else:
+                  return value
+          except ValueError:
+              print("\nInvalid input. Please enter a number.")
+
 def calculate_landed_cost(structured_data, hs_codes):
     """
-    Intro and setting explaining how it works
+    Calculates total landed cost for an international shipment.
+
+    Includes CIF, import duty, MPF, HMF, VAT, and supports FTA logic
+    and optional HS code overrides.
     """
     print("\nWelcome to the Import Duty Calculator!")
     print("This calculator assumes you're importing into the U.S. from abroad.")
@@ -87,18 +106,6 @@ def calculate_landed_cost(structured_data, hs_codes):
         except ValueError:
             print(
                 "Invalid selection. Using default duty rate.")  
-
-    # Numeric input helper
-    def get_positive_float(prompt):
-        while True:
-            try:
-                value = float(input(prompt))
-                if value < 0:
-                    print("\nPlease enter a non-negative number.")
-                else:
-                    return value
-            except ValueError:
-                print("\nInvalid input. Please enter a number.")
 
     # Ask for product cost inputs
     product_value = get_positive_float("\nEnter product value (in USD): ")
