@@ -12,11 +12,14 @@ This project was built with Python3 as the **"Python's Essentials" Project (Port
 - [User Story](#user-story)
 - [Planning](#planning)
 - [User Flow](#user-flow)
+- [UX](#ux)
+- [Design](#design)
 - [Features](#features)
 - [Calculator Math](#calculator-math)
 - [Disclaimer](#disclaimer)
 - [Technologies Used](#technologies-used)
 - [Testing](#testing)
+- [Debugging](#debugging)
 - [Deployment](#deployment)
 - [Credits](#credits)
 
@@ -128,8 +131,6 @@ Each country entry includes fields for value-added tax (VAT), merchandise proces
 
 
 
-
-
 ### 📦 Sample Products (HS Codes)
 
 This table contains mock Harmonized System codes (HS codes) used to simulate how duty rates change by product category.
@@ -175,17 +176,8 @@ The logic of this program is summarized in the following diagram:
 
 ## 📦 Example Output
 
-```bash
-Welcome to the Import Duty Calculator!
-This calculator assumes you're importing into the U.S. from abroad.
 
-Available countries:
-. US
-. DE
-. MX
+![Responsive mock-up](/assets/images/mockup.jpg)
 
-Origin country code (e.g. DE): MX
-DESTINATION country code (e.g US): US
 
-Route: MX → US
-FTA (Free Trade Agreement) applied: Import duty waived.
+

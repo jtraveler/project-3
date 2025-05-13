@@ -34,7 +34,7 @@ def calculate_landed_cost(structured_data, hs_codes):
     # Get origin country
     origin_country = ""
     while origin_country not in valid_country_codes:
-        origin_country = input("Origin country code (e.g. DE): ").upper()
+        origin_country = input("\nOrigin country code (e.g. DE): ").upper()
         if origin_country.lower() == 'exit':
             print("\nExiting calculator. Goodbye!")
             return
@@ -84,7 +84,7 @@ def calculate_landed_cost(structured_data, hs_codes):
     )
     use_hs = input(hs_prompt).strip().lower()
 
-    if use_hs in ['yes', 'y']:
+    if use_hs in ['yes', 'y', 'ok', 'sure']:
         print("\nAvailable HS codes:")
         for index, hs in enumerate(hs_codes):
             desc = hs['description']
@@ -96,7 +96,7 @@ def calculate_landed_cost(structured_data, hs_codes):
         try:
             select_index = int(input("\nHS code number (e.g. 1): "))
             if 1 <= select_index <= len(hs_codes):
-                selected_hs = hs_codes[select_index - 1]  
+                selected_hs = hs_codes[select_index - 1]
                 country_info['duty_rate'] = float(selected_hs['duty_rate'])
                 code = selected_hs['hs_code']
                 rate = selected_hs['duty_rate']
@@ -105,7 +105,7 @@ def calculate_landed_cost(structured_data, hs_codes):
                 print("Number not in list. Default duty rate will be used.")
         except ValueError:
             print(
-                "Invalid selection. Using default duty rate.")  
+                "Invalid selection. Using default duty rate.")
 
     # Ask for product cost inputs
     product_value = get_positive_float("\nEnter product value (in USD): ")

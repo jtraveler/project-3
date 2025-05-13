@@ -17,6 +17,6 @@ while True:
     again = input(
         "\nWould you like to calculate another shipment? (yes/no): "
         ).strip()
-    if again not in ['yes', 'y']:
+    if again not in ['yes', 'y', 'ok', 'sure']:
         print("Thanks for using the Import Duty Calculator. Goodbye!")
         break
