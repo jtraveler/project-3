@@ -3,7 +3,7 @@ def calculate_landed_cost(structured_data, hs_codes):
     Intro and setting explaining how it works
     """
     print("\nWelcome to the Import Duty Calculator!")
-    print("This calculator assumes you are importing goods INTO the U.S. from another country.")
+    print("This calculator assumes you're importing into the U.S. from abroad.")
 
     # Prompt user input
     print("\nAvailable countries:")
@@ -15,7 +15,7 @@ def calculate_landed_cost(structured_data, hs_codes):
     # Get origin country
     origin_country = ""
     while origin_country not in valid_country_codes:
-        origin_country = input("Enter the ORIGIN country code (e.g DE): ").upper()
+        origin_country = input("Origin country code (e.g. DE): ").upper()
         if origin_country.lower() == 'exit':
             print("\nExiting calculator. Goodbye!")
             return
@@ -26,7 +26,7 @@ def calculate_landed_cost(structured_data, hs_codes):
     destination_country = ""
     while destination_country not in valid_country_codes:
         destination_country = input(
-            "\nEnter the DESTINATION country code (e.g US): ").upper()
+            "\nDESTINATION country code (e.g US): ").upper()
         if destination_country.lower() == 'exit':
             print("\nExiting calculator. Goodbye!")
             return
@@ -75,16 +75,18 @@ def calculate_landed_cost(structured_data, hs_codes):
 
         # Let user select HS code
         try:
-            select_index = int(input("\nEnter the number of the HS code to use (e.g 1): "))
+            select_index = int(input("\nHS code number (e.g. 1): "))
             if 1 <= select_index <= len(hs_codes):
                 selected_hs = hs_codes[select_index - 1]  
                 country_info['duty_rate'] = float(selected_hs['duty_rate'])
-                print(f"Using HS code: {selected_hs['hs_code']} with rate {selected_hs['duty_rate']}")
+                code = selected_hs['hs_code']
+                rate = selected_hs['duty_rate']
+                print(f"Using HS code: {code} with rate {rate}")
             else:
-                print("That number is not in the list. Continuing with default duty rate.")
+                print("Number not in list. Default duty rate will be used.")
         except ValueError:
             print(
-                "Invalid HS code selection. Continuing with default duty rate.")  
+                "Invalid selection. Using default duty rate.")  
 
     # Numeric input helper
     def get_positive_float(prompt):
@@ -96,7 +98,7 @@ def calculate_landed_cost(structured_data, hs_codes):
                 else:
                     return value
             except ValueError:
-                print("\nSorry, you entered invalid input. Please enter a number")
+                print("\nInvalid input. Please enter a number.")
 
     # Ask for product cost inputs
     product_value = get_positive_float("\nEnter product value (in USD): ")
@@ -122,11 +124,13 @@ def calculate_landed_cost(structured_data, hs_codes):
     print(f"MPF (Processing Fee): ${mpf:,.2f}")
     print(f"HMF (Harbor Fee): ${hmf:,.2f}")
 
-    # Calculate VAT (Value Added Tax) which is = ((CIF + duty + fees) × vat_rate)
+    # Calculate VAT (Value Added Tax) as:
+    # ((CIF + duty + fees) × vat_rate)
     vat_rate = float(country_info['vat_rate'])
     vat = (cif_total + import_duty + mpf + hmf) * vat_rate
 
-    # Calculating landed cost, which is sum of all above (CIF + Duty + MPF + HMF + VAT)
+    # Calculating landed cost as:
+    # sum of all above (CIF + Duty + MPF + HMF + VAT)
     landed_cost = cif_total + import_duty + mpf + hmf + vat
 
     # Print VAT and Total
