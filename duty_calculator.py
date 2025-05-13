@@ -1,18 +1,18 @@
 # Numeric input helper
-  def get_positive_float(prompt):
-      """
-      Prompt for a non-negative numeric input.
-      Repeats until the user provides valid float input ≥ 0.
-      """
-      while True:
-          try:
-              value = float(input(prompt))
-              if value < 0:
-                  print("\nPlease enter a non-negative number.")
-              else:
-                  return value
-          except ValueError:
-              print("\nInvalid input. Please enter a number.")
+def get_positive_float(prompt):
+    """
+    Prompt for a non-negative numeric input.
+    Repeats until the user provides valid float input ≥ 0.
+    """
+    while True:
+        try:
+            value = float(input(prompt))
+            if value < 0:
+                print("\nPlease enter a non-negative number.")
+            else:
+                return value
+        except ValueError:
+            print("\nInvalid input. Please enter a number.")
 
 def calculate_landed_cost(structured_data, hs_codes):
     """
