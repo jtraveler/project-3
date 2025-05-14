@@ -11,12 +11,13 @@ This project was built with Python3 as the **"Python's Essentials" Project (Port
 - [Overview](#overview)
 - [User Story](#user-story)
 - [Planning](#planning)
-- [User Flow](#user-flow)
+- [Research](#research)
 - [UX](#ux)
 - [Design](#design)
 - [Features](#features)
 - [Calculator Math](#calculator-math)
 - [Disclaimer](#disclaimer)
+- [Demo Limitations](#demo-limitations)
 - [Technologies Used](#technologies-used)
 - [Testing](#testing)
 - [Debugging](#debugging)
@@ -45,13 +46,59 @@ That’s why I built the **Import Duty Calculator** — a user-friendly terminal
 
 ---
 
-## 📋 Planning and Research
+## 🔀 Planning
+
+The logic of this program is summarized in the following diagram(created with [lucid.app](https://lucid.app/)):
+
+![Flowchart of Program](assets/images/flowchart.jpg)
+
+---
+
+## 📋 Research
 
 To push this idea forward, I had to dive into the planning and research phase to gain a better understanding on the calculation formulas and duty fee terminolog. Luckily I was able to get help with using the Perpexity tool, which made my job much easier with gathering the information I needed. Therfore, with my research I was able to get the information for gathering the calculator math from the following references:
 
 [U.S. Customs and Border Protection](https://www.cbp.gov/trade/basic-import-export/importer-exporter-tips)
 
 [HTS.USITC.gov](https://hts.usitc.gov/)
+
+---
+
+## 🧑‍💻 UX
+
+### 🎯 Project Goals  
+The goal of this project is to provide users with a simple, accessible, and intuitive calculator for estimating import duties, taxes, and tariffs for shipments entering the U.S. from other countries. It was created with real-world frustrations in mind: changing tariffs, hard-to-navigate government resources, and tools that are not beginner-friendly.  
+
+This tool empowers small businesses, hobby importers, and curious learners with quick estimates based on easily updatable Google Sheet data—no spreadsheets, no manual math, no confusion.
+
+---
+
+### 👤 User Stories
+
+#### As a user, I want to:
+
+- Understand what this calculator does as soon as I launch it  
+- Select an origin and destination country easily using country codes  
+- Be informed if I enter an invalid country code or same origin/destination  
+- Enter product value, shipping, and insurance cost with helpful prompts  
+- Understand how the final landed cost is calculated  
+- See a detailed breakdown of all fees (CIF, duty, MPF, HMF, VAT)  
+- Choose a sample HS code if I don’t know the exact one  
+- See when an FTA applies and how it affects my duty rate  
+- Have the option to calculate a new shipment when I finish  
+- Exit the calculator anytime by typing 'exit'  
+
+---
+
+#### As an admin, I want to:
+
+- 📝 Easily update country rates and HS codes without editing the Python code  
+- 🗂️ Store all fee configurations in a Google Sheet  
+- 🔄 Maintain the tool’s accuracy over time by adjusting source data  
+- 🧪 Use this project as a testbed for future features like real-time API data or multi-currency support  
+
+
+
 
 ---
 
@@ -142,14 +189,6 @@ This table contains mock Harmonized System codes (HS codes) used to simulate how
 | 8528.72.6400 | LED Displays        | 0.026      |
 
 
-
----
-
-## 🔀 Flowchart
-
-The logic of this program is summarized in the following diagram:
-
-![Flowchart of Program](assets/images/flowchart.jpg)
 
 ---
 
