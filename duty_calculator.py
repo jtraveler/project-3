@@ -26,7 +26,7 @@ def calculate_landed_cost(structured_data, hs_codes):
     Includes CIF, import duty, MPF, HMF, VAT, and supports FTA logic
     and optional HS code overrides.
     """
-    print("\n👋 Welcome to the Import Duty Calculator!")
+    print("\n👋{left_padding}Welcome to the Import Duty Calculator!")
     print("📦 Please note that this tool is for U.S. imports only.")
     print('💡 Type "exit" at any prompt to leave the calculator.')
 
@@ -42,7 +42,7 @@ def calculate_landed_cost(structured_data, hs_codes):
     while origin_country not in valid_country_codes:
         origin_country = input("\n🏁 Origin country code (e.g. DE): ").upper()
         if origin_country.lower() == 'exit':
-            print("\nExiting calculator. Goodbye!\n")
+            print("\n👋 Exiting calculator. Goodbye!\n")
             return
         if origin_country not in valid_country_codes:
             print('\nInvalid code. Please try again or type "exit" to quit')
@@ -53,7 +53,7 @@ def calculate_landed_cost(structured_data, hs_codes):
         destination_country = input(
             "\n🎯 Destination country code (e.g US): ").upper()
         if destination_country.lower() == 'exit':
-            print("\nExiting calculator. Goodbye!")
+            print("\n👋 Exiting calculator. Goodbye!")
             return
         if destination_country not in valid_country_codes:
             print('\nInvalid code. Please try again or type "exit" to quit.')
@@ -90,7 +90,7 @@ def calculate_landed_cost(structured_data, hs_codes):
     )
     use_hs = input(hs_prompt).strip().lower()
     if use_hs == 'exit':
-        print("\nExiting calculator. Goodbye!")
+        print("\n👋 Exiting calculator. Goodbye!")
         return
     elif use_hs in ['no', 'n']:
         print("\nℹ️ Continuing without HS code override.")
@@ -106,10 +106,10 @@ def calculate_landed_cost(structured_data, hs_codes):
         # Let user select HS code
         try:
             select_index = input(
-            "\nHS code number (e.g. 1 or type 'exit'): "
-             ).strip()
+                "\nHS code number (e.g. 1 or type 'exit'): "
+                ).strip()
             if select_index.lower() == 'exit':
-                print("\nExiting calculator. Goodbye!")
+                print("\n👋 Exiting calculator. Goodbye!")
                 return
             select_index = int(select_index)
             if 1 <= select_index <= len(hs_codes):

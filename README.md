@@ -8,19 +8,20 @@ This project was built with Python3 as the **"Python's Essentials" Project (Port
 ---
 
 ## 📖 Table of Contents
-- [Overview](#overview)
-- [User Story](#user-story)
-- [Planning](#planning)
-- [Research](#research)
-- [UX](#ux)
-- [Design](#design)
-- [Features](#features)
-- [Calculator Math](#calculator-math)
-- [Disclaimer](#disclaimer)
+- [Overview](#overview) - DONE
+- [User Story](#user-story) - DONE
+- [Planning](#planning) - DONE
+- [Research](#research) - DONE
+- [UX](#ux) - DONE
+- [Design](#design) - DONE
+- [Features](#features) - DONE
+- [Duty & Fee Terminology](#duty-fee-technology) - DONE
+- [Calculator Math](#calculator-math) - DONE
+- [Disclaimer](#disclaimer) - DONE
 - [Demo Limitations](#demo-limitations)
 - [Technologies Used](#technologies-used)
-- [Testing](#testing)
-- [Debugging](#debugging)
+- [Testing](#testing) - DONE
+- [Debugging](#debugging) - DONE
 - [Deployment](#deployment)
 - [Credits](#credits)
 
@@ -73,6 +74,45 @@ This tool empowers small businesses, hobby importers, and curious learners with 
 
 ---
 
+## 🎨 Design
+
+Since this project runs entirely in the terminal, there were a few natural limitations when it came to user interface design. But I still wanted to make it feel friendly, clear, and engaging.
+
+One of the ways I brought the calculator to life was by using **emojis** and simple iconography throughout the user flow. These serve both a visual and functional purpose which helps users quickly understand what kind of input is being requested or what kind of result they’re looking at.
+
+For example:
+- `🏁` marks the origin country input  
+- `🎯` is for the destination  
+- `💰`, `🚢`, and `🛡️` clearly flag financial inputs  
+- `📦`, `⚓`, and `🧾` are used for specific cost categories  
+- `✅`, `⚠️`, and `👋` help punctuate key moments in the experience
+
+This style helps simulate the structure and visual guidance of a graphical UI — even though it's a command-line app — and keeps things feeling lightweight and intuitive.
+
+
+
+### 💡 Benefits of the Design
+
+Even without a graphical interface, this calculator is designed to be:
+- **Approachable** – thanks to the tone and use of icons
+- **Structured** – inputs and outputs are clearly grouped
+- **Readable** – spacing and separators (like `"------"`) keep sections clear
+- **Consistent** – users learn the rhythm of interaction quickly
+
+
+
+### ⚠️ Design Limitations
+
+Of course, working in a terminal comes with some constraints:
+- No use of colors or font styling (unless extended by libraries)
+- No visual charts or summaries
+- No real-time visual interactivity
+
+But given those limits, this project uses what’s available in creative ways to ensure users aren’t just able to complete their calculation — they actually enjoy the process.
+
+---
+
+
 ### 👤 User Stories
 
 #### As a user, I want to:
@@ -88,17 +128,32 @@ This tool empowers small businesses, hobby importers, and curious learners with 
 - Have the option to calculate a new shipment when I finish  
 - Exit the calculator anytime by typing 'exit'  
 
----
 
 #### As an admin, I want to:
 
-- 📝 Easily update country rates and HS codes without editing the Python code  
-- 🗂️ Store all fee configurations in a Google Sheet  
-- 🔄 Maintain the tool’s accuracy over time by adjusting source data  
-- 🧪 Use this project as a testbed for future features like real-time API data or multi-currency support  
+- Easily update country rates and HS codes without editing the Python code  
+- Store all fee configurations in a Google Sheet  
+- Maintain the tool’s accuracy over time by adjusting source data  
+- Use this project as a testbed for future features like real-time API data or multi-currency support  
 
 
+---
 
+## 🧾 Duty & Fee Terminology
+
+Below are the key terms used throughout this calculator. These are commonly associated with international import costs and help determine the **total landed cost** of goods.
+
+| Term               | Meaning                                                                 |
+|--------------------|-------------------------------------------------------------------------|
+| **Import Duty**     | A tax charged by the destination country on imported goods. Calculated as a percentage of the item's value (or CIF). Reference: [Investopedia - Import Duty](https://www.investopedia.com/terms/i/import-duty.asp) & [DHL – Import Duty Explained](https://www.dhl.com/discover/en-global/logistics-advice/import-export-advice/what-is-import-duty)|
+| **VAT / GST**       | Value Added Tax or Goods and Services Tax. A consumption tax added in many countries, including the EU. Reference: [EasyParcel – What are VAT and GST?](https://helpcentre-my.easyparcel.com/support/solutions/articles/9000224157-what-are-vat-tax-and-gst-tax-)|
+| **Other Taxes**     | This can include excise duties, environmental fees, or other local taxes. *(Not calculated in this demo.)* |
+| **MPF / HMF**       | U.S.-specific fees: **MPF** (Merchandise Processing Fee) and **HMF** (Harbor Maintenance Fee). Charged based on CIF value. Reference: [Freight Right – What are HMF and MPF?](https://www.freightright.com/kb/hmf-and-mpf)|
+| **FTA Reduction**   | A discount or full waiver on import duty if a **Free Trade Agreement** exists between the origin and destination. Reference: [Investopedia – Import Duty (FTA explanation)](https://www.investopedia.com/terms/i/import-duty.asp)|
+| **Total Landed Cost** | The final price to import goods: includes product value, duty, VAT, MPF/HMF, insurance, and shipping. Reference: [DHL – Import Duty Explained](https://www.dhl.com/discover/en-global/logistics-advice/import-export-advice/what-is-import-duty)|
+
+
+- Official links to additonal sources: [U.S. Customs and Border Protection](https://www.cbp.gov/trade/basic-import-export/importer-exporter-tips) and [HTS.USITC.gov](https://hts.usitc.gov) for authoritative import fees and regulations. 
 
 ---
 
@@ -115,6 +170,8 @@ The calculator uses the following key formulas:
 | **VAT**           | `VAT = (CIF + Import Duty + MPF + HMF) × vat_rate` |
 | **Total Landed Cost** | `Landed Cost = CIF + Import Duty + MPF + HMF + VAT` |
 
+
+---
 
 ## ⚠️ Disclaimer
 
@@ -219,4 +276,141 @@ This table contains mock Harmonized System codes (HS codes) used to simulate how
 ![Responsive mock-up](/assets/images/mockup.jpg)
 
 
+---
 
+## 🧪 Testing
+
+### ✅ Validator Testing
+
+To ensure that the code meets Python best practices and standards, I used the [PEP8](pep8ci.herokuapp.com) style guide validator.
+
+- **All code successfully passed PEP8 validation.**  
+- No warnings or errors remain.
+
+However, during testing, I discovered a few issues that I addressed:
+
+#### Common Issues Found:
+- ⚠️ **Long Lines**: Several lines exceeded the recommended 79 characters.  
+  **Solution**: I refactored and broke these lines using backslashes (`\`) or by reformatting the structure for better readability.
+  
+- ⚠️ **Spacing Issues**: There were some unnecessary spaces around operators and after commas.  
+  **Solution**: I cleaned up these formatting issues across all affected lines to improve clarity and follow the PEP8 standard.
+
+Thanks to this testing process, the code is now cleaner, more readable, and consistent with Python conventions. This not only helps the current calculator run smoothly but also makes future updates easier to manage. ✅
+
+**Results for my run.py file**
+
+![Responsive mock-up](/assets/images/pep8-run.jpg)
+
+
+**Results for my duty_calculator.py file**
+
+![Responsive mock-up](/assets/images/pep8-duty_calculator.jpg)
+
+
+**Results for my imports_rates.py file**
+
+![Responsive mock-up](/assets/images/pep8-imports_rates.jpg)
+
+
+
+
+## 🐞 Debugging
+
+### Fixed Bugs
+
+#### Bug 1: 
+`get_positive_float()` was always asking twice
+Early in development, the input helper `get_positive_float()` was mistakenly calling `input(prompt)` **twice** — once before the `try` block and again inside it. This resulted in the user needing to enter the value twice for it to be processed correctly.
+
+**How I discovered it:**  
+I noticed that I was prompted twice for each number entry. It felt odd and repetitive, so I asked for help.
+
+**Solution:**  
+I realized the line `value = float(input(prompt))` was unnecessary because `input(prompt)` had already been called just before. I refactored the code to only prompt the user once.
+
+---
+
+####  Bug 2:
+No proper exit for numeric prompts
+The calculator didn’t recognize `"exit"` when typed into a number field (like product value or shipping). Instead, it threw a `ValueError` since it tried to convert `"exit"` to a float.
+
+**How I fixed it:**  
+I added a conditional to check if the input was `"exit"` before attempting to convert it, and if so, return `None` and exit the calculator.
+
+```python
+user_input = input(prompt)
+if user_input.lower() == 'exit':
+    print("\n👋 Exiting calculator. Goodbye!")
+    return None
+```
+---
+#### Bug 3:
+HS Code Selection Crash (Index Error)
+
+**Problem:**
+When users selected an HS code by typing `1`, the program crashed with:
+
+`IndexError: list index out of range`
+
+**Cause:**  
+Python lists start at index `0`, but the interface presented HS code options starting from `1` to feel more intuitive to users.  
+This mismatch caused the code to attempt accessing `hs_codes[1]`, which actually pointed to the **second** item — not the first.  
+If the list had only one item, this would result in an immediate `IndexError`.
+
+---
+
+**🔍 Investigation Process:**  
+To understand the issue, I added debug statements to log the user's selection and the list size:
+
+```
+python
+print(f"User selected index: {selected_index}")
+print(f"Length of hs_codes list: {len(hs_codes)}")
+
+```
+
+When I entered 1, the output was:
+```
+User selected index: 1
+Length of hs_codes list: 3
+```
+
+This confirmed the mismatch as the user was selecting a 1-based number, but Python needed 0-based indexing.
+
+**The solution:**
+I updated the code to subtract 1 from the input before accessing the list:
+
+```selected_hs = hs_codes[selected_index - 1]```
+This made the selection logic match user expectations and eliminated the crash.
+
+
+
+## 🚀 Deployment
+
+This calculator was deployed on **Heroku** using the [Code Institute Python Essentials template](https://github.com/Code-Institute-Org/python-essentials-template). The process is beginner-friendly and integrates well with GitHub.
+
+### 🌐 Steps to Deploy:
+
+1. **Forked or clone** this GitHub repository to my own account.
+
+2. Headed to [Heroku](https://www.heroku.com/) and **created an account**.
+
+3. In the Heroku dashboard, clicked **“New” > “Create new app”** and selected a project name.
+
+4. Under the **Settings** tab the new app, scrolled down to **Buildpacks** and added the following **two buildpacks**:
+    - `Python`
+    - `NodeJS`
+
+    > ⚠️ Made sure `Python` is listed **above** `NodeJS` — the order matters!
+
+5. In the **Deploy** tab:
+    - Connected my **GitHub** account and searched for my repository.
+    - I enabled the **Automatic Deploys** option as it's recommended.
+    - Clicked **“Deploy Branch”** to start the deployment.
+
+6. Once deployed, you I click **“Open App”** to launch my live Import Duty Calculator.
+
+---
+
+💡 _Note: This project uses a simple terminal-based UI powered by `python-essentials-template`, which handles input/output through Heroku's mock terminal window._
