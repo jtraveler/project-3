@@ -26,9 +26,9 @@ def calculate_landed_cost(structured_data, hs_codes):
     Includes CIF, import duty, MPF, HMF, VAT, and supports FTA logic
     and optional HS code overrides.
     """
-    print("\n👋<0ws>Welcome to the Import Duty Calculator!")
-    print("📦 Please note that this tool is for U.S. imports only.")
-    print('💡 Type "exit" at any prompt to leave the calculator.')
+    print("\n👋  Welcome to the Import Duty Calculator!")
+    print("📦  Please note that this tool is for U.S. imports only.")
+    print('💡  Type "exit" at any prompt to leave the calculator.')
 
     # Prompt user input
     print("\n🌍 Available countries:")
