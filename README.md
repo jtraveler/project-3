@@ -149,7 +149,7 @@ This table contains mock Harmonized System codes (HS codes) used to simulate how
 
 The logic of this program is summarized in the following diagram:
 
-![Flowchart of Program](insert-your-flowchart-url-here)
+![Flowchart of Program](assets/images/flowchart.jpg)
 
 ---
 

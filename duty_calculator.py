@@ -14,6 +14,7 @@ def get_positive_float(prompt):
         except ValueError:
             print("\nInvalid input. Please enter a number.")
 
+
 def calculate_landed_cost(structured_data, hs_codes):
     """
     Calculates total landed cost for an international shipment.
@@ -22,7 +23,7 @@ def calculate_landed_cost(structured_data, hs_codes):
     and optional HS code overrides.
     """
     print("\nWelcome to the Import Duty Calculator!")
-    print("This calculator assumes you're importing into the U.S. from abroad.")
+    print("Sorry, this tool is for U.S. imports only.")
 
     # Prompt user input
     print("\nAvailable countries:")
@@ -56,7 +57,7 @@ def calculate_landed_cost(structured_data, hs_codes):
     if origin_country == destination_country:
         print("\nWARNING: Origin and destination country are the same.")
         print(
-            "Sorry, this calculator is intended for international imports only.")
+            "Sorry, this tool is for international imports only.")
         return
 
     # Load destination country info
