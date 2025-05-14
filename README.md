@@ -15,7 +15,7 @@ This project was built with Python3 as the **"Python's Essentials" Project (Port
 - [Design](#design)
 - [Features](#features)
 - [Research](#research)
-- [Duty & Fee Terminology](#duty-fee-technology)
+- [Duty & Fee Terminology](#-duty--fee-terminology)
 - [Calculator Math](#calculator-math)
 - [Disclaimer](#disclaimer)
 - [Demo Limitations](#demo-limitations)
@@ -151,7 +151,7 @@ Below are the key terms used throughout this calculator. These are commonly asso
 | **Total Landed Cost** | The final price to import goods: includes product value, duty, VAT, MPF/HMF, insurance, and shipping. Reference: [DHL – Import Duty Explained](https://www.dhl.com/discover/en-global/logistics-advice/import-export-advice/what-is-import-duty)|
 
 
-- Official links to additonal sources: [U.S. Customs and Border Protection](https://www.cbp.gov/trade/basic-import-export/importer-exporter-tips) and [HTS.USITC.gov](https://hts.usitc.gov) for authoritative import fees and regulations. 
+- Official links to additional sources: [U.S. Customs and Border Protection](https://www.cbp.gov/trade/basic-import-export/importer-exporter-tips) and [HTS.USITC.gov](https://hts.usitc.gov) for authoritative import fees and regulations. 
 
 ---
 
@@ -173,7 +173,7 @@ The calculator uses the following key formulas:
 
 ## ⚠️ Disclaimer
 
-This calculator is a **demo/prototype** and is intended for **testing purposes only**. Therfore the rates may not be current.  
+This calculator is a **demo/prototype** and is intended for **testing purposes only**. Therefore the rates may not be current.  
 - Duty rates, VAT, MPF, and HMF values are not guaranteed to be up-to-date.
 - Data is manually managed via Google Sheets and may not reflect current U.S. Customs or international rates.
 - Links to official sources: [U.S. Customs and Border Protection](https://www.cbp.gov/trade/basic-import-export/importer-exporter-tips) and [HTS.USITC.gov](https://hts.usitc.gov) for authoritative import fees and regulations.
@@ -292,7 +292,7 @@ This table contains mock Harmonized System codes (HS codes) used to simulate how
 
 ### ✅ Validator Testing
 
-To ensure that the code meets Python best practices and standards, I used the [PEP8](pep8ci.herokuapp.com) style guide validator.
+To ensure that the code meets Python best practices and standards, I used the [PEP8](https://pep8ci.herokuapp.com) style guide validator.
 
 - **All code successfully passed PEP8 validation.**  
 - No warnings or errors remain.
@@ -454,11 +454,11 @@ This calculator was deployed on **Heroku** using the [Code Institute Python Esse
 
 ### Tools
 
-[Perplexity as a reasearch tool](https://www.perplexity.ai/)
+[Perplexity as a research tool](https://www.perplexity.ai/)
 
 [ChatGPT for the layout help and emjoi ideas](https://chatgpt.com/)
 
-[PEP8 for code checking](pep8ci.herokuapp.com)
+[PEP8 for code checking](https://pep8ci.herokuapp.com)
 
 ---
 
