@@ -3,25 +3,24 @@
 [Live Site on Heroku](https://project-3-0d23a0350b7d.herokuapp.com/)  
 This project was built with Python3 as the **"Python's Essentials" Project (Portfolio Project 3)** for [Code Institute](https://codeinstitute.net/).
 
-![Responsive Preview](insert-your-screenshot-url-here)
+![Responsive mock-up](/assets/images/app-1intro.jpg)
 
 ---
 
 ## 📖 Table of Contents
-- [Overview](#overview) - DONE
-- [User Story](#user-story) - DONE
-- [Planning](#planning) - DONE
-- [Research](#research) - DONE
-- [UX](#ux) - DONE
-- [Design](#design) - DONE
-- [Features](#features) - DONE
-- [Duty & Fee Terminology](#duty-fee-technology) - DONE
-- [Calculator Math](#calculator-math) - DONE
-- [Disclaimer](#disclaimer) - DONE
+- [Overview](#overview)
+- [User Story](#user-story)
+- [Planning](#planning)
+- [UX](#ux)
+- [Design](#design)
+- [Features](#features)
+- [Research](#research)
+- [Duty & Fee Terminology](#duty-fee-technology)
+- [Calculator Math](#calculator-math)
+- [Disclaimer](#disclaimer)
 - [Demo Limitations](#demo-limitations)
-- [Technologies Used](#technologies-used)
-- [Testing](#testing) - DONE
-- [Debugging](#debugging) - DONE
+- [Testing](#testing)
+- [Debugging](#debugging)
 - [Deployment](#deployment)
 - [Credits](#credits)
 
@@ -52,16 +51,6 @@ That’s why I built the **Import Duty Calculator** — a user-friendly terminal
 The logic of this program is summarized in the following diagram(created with [lucid.app](https://lucid.app/)):
 
 ![Flowchart of Program](assets/images/flowchart.jpg)
-
----
-
-## 📋 Research
-
-To push this idea forward, I had to dive into the planning and research phase to gain a better understanding on the calculation formulas and duty fee terminolog. Luckily I was able to get help with using the Perpexity tool, which made my job much easier with gathering the information I needed. Therfore, with my research I was able to get the information for gathering the calculator math from the following references:
-
-[U.S. Customs and Border Protection](https://www.cbp.gov/trade/basic-import-export/importer-exporter-tips)
-
-[HTS.USITC.gov](https://hts.usitc.gov/)
 
 ---
 
@@ -136,6 +125,15 @@ But given those limits, this project uses what’s available in creative ways to
 - Maintain the tool’s accuracy over time by adjusting source data  
 - Use this project as a testbed for future features like real-time API data or multi-currency support  
 
+---
+
+## 📋 Research
+
+To bring this idea to life, I first needed to untangle the complexities behind import fees and duty tax formulas. That meant diving deep into the planning and research phase with starting with decoding industry terms. Understanding how the fees are structured, and figuring out what goes into calculating total landed cost was essential. Thankfully, tools like Perplexity made the process much smoother, helping me uncover accurate and relevant sources quickly. Armed with those insights, I compiled the core formulas and logic used in this calculator from the following references:
+
+[U.S. Customs and Border Protection](https://www.cbp.gov/trade/basic-import-export/importer-exporter-tips)
+
+[HTS.USITC.gov](https://hts.usitc.gov/)
 
 ---
 
@@ -272,8 +270,20 @@ This table contains mock Harmonized System codes (HS codes) used to simulate how
 
 ## 📦 Example Output
 
+### Intro Screen
+![Responsive mock-up](/assets/images/app-1intro.jpg)
 
-![Responsive mock-up](/assets/images/mockup.jpg)
+### Begins Prompting User for Data
+![Responsive mock-up](/assets/images/app-2asking-forinfo.jpg)
+
+### Computing Total Landed Cost for USer
+![Responsive mock-up](/assets/images/app-3-computes-total.jpg)
+
+### Error Handing: If user inputs random characters
+![Responsive mock-up](/assets/images/app-4-error-handling2.jpg)
+
+### Option Quit: If user types "exit" at anytime 
+![Responsive mock-up](/assets/images/app-4-error-handling3.jpg)
 
 
 ---
@@ -312,6 +322,26 @@ Thanks to this testing process, the code is now cleaner, more readable, and cons
 
 ![Responsive mock-up](/assets/images/pep8-imports_rates.jpg)
 
+
+---
+
+## ✅ Testing User Stories (Functionality)
+
+| **Expectation (As a user, I want to...)**                             | **Result (So I...)**                                               |
+|----------------------------------------------------------------------|----------------------------------------------------------------------|
+| understand what the calculator does                                  | see an intro message explaining it’s for U.S. imports               |
+| exit the calculator anytime                                          | can type `"exit"` at any prompt to leave                           |
+| view supported country codes                                         | see a list of valid country codes                                   |
+| be warned if I enter an invalid country                              | receive an error and can try again                                  |
+| not use the same country for origin and destination                  | get a warning that international routes only are supported          |
+| apply a sample HS code if I want                                     | get the option to override with a listed sample HS code             |
+| view sample HS codes                                                 | see a numbered list of codes, descriptions, and rates               |
+| be warned for invalid HS code selection                              | see an error and calculator defaults to standard duty rate          |
+| skip the HS override                                                 | can continue with the default duty rate                             |
+| input product value, shipping, and insurance separately              | get prompted step-by-step                                           |
+| be warned for invalid or negative values                             | receive a clear error and retry option                              |
+| see a detailed breakdown of costs                                    | get line-by-line summary for CIF, duty, fees, and VAT               |
+| enjoy a clear and friendly experience                                | see emojis and clear formatting at each step                        |
 
 
 
@@ -411,6 +441,49 @@ This calculator was deployed on **Heroku** using the [Code Institute Python Esse
 
 6. Once deployed, you I click **“Open App”** to launch my live Import Duty Calculator.
 
+
+
+💡 _Note: This project uses a simple terminal-based UI powered by `python-essentials-template`, which handles input/output through Heroku's mock terminal window.
+
+---
+## 🙌 Credits
+
+
+### My Mentor: Spencer Barriball
 ---
 
-💡 _Note: This project uses a simple terminal-based UI powered by `python-essentials-template`, which handles input/output through Heroku's mock terminal window._
+### Tools
+
+[Perplexity as a reasearch tool](https://www.perplexity.ai/)
+
+[ChatGPT for the layout help and emjoi ideas](https://chatgpt.com/)
+
+[PEP8 for code checking](pep8ci.herokuapp.com)
+
+---
+
+### Calculator Formulas:
+
+#### Official sources
+[U.S. Customs and Border Protection](https://www.cbp.gov/trade/basic-import-export/importer-exporter-tips) [HTS.USITC.gov](https://hts.usitc.gov)
+
+
+---
+### For Duty Terminology
+
+#### Import Duty
+[Investopedia - Import Duty](https://www.investopedia.com/terms/i/import-duty.asp)
+
+[DHL – Import Duty Explained](https://www.dhl.com/discover/en-global/logistics-advice/import-export-advice/what-is-import-duty)
+
+#### VAT/GST
+[EasyParcel – What are VAT and GST?](https://helpcentre-my.easyparcel.com/support/solutions/articles/9000224157-what-are-vat-tax-and-gst-tax-)
+
+#### MPF/HMF
+[Freight Right – What are HMF and MPF?](https://www.freightright.com/kb/hmf-and-mpf)
+
+#### FTA
+[Investopedia – Import Duty (FTA explanation)](https://www.investopedia.com/terms/i/import-duty.asp)
+
+#### Total Land Cost
+[DHL – Import Duty Explained](https://www.dhl.com/discover/en-global/logistics-advice/import-export-advice/what-is-import-duty)

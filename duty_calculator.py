@@ -7,7 +7,7 @@ def get_positive_float(prompt):
     while True:
         user_input = input(prompt)
         if user_input.lower() == 'exit':
-            print("\n👋 Exiting calculator. Goodbye!")
+            print("\n👋  Exiting calculator. Goodbye!")
             return None
         try:
             value = float(user_input)
@@ -31,7 +31,7 @@ def calculate_landed_cost(structured_data, hs_codes):
     print('💡  Type "exit" at any prompt to leave the calculator.')
 
     # Prompt user input
-    print("\n🌍 Available countries:")
+    print("\n🌍  Available countries:")
     for entry in structured_data:
         print(".", entry['country_code'])
 
@@ -53,14 +53,14 @@ def calculate_landed_cost(structured_data, hs_codes):
         destination_country = input(
             "\n🎯 Destination country code (e.g US): ").upper()
         if destination_country.lower() == 'exit':
-            print("\n👋 Exiting calculator. Goodbye!")
+            print("\n👋  Exiting calculator. Goodbye!")
             return
         if destination_country not in valid_country_codes:
             print('\nInvalid code. Please try again or type "exit" to quit.')
 
     # Warn and skip if origin is same as destination
     if origin_country == destination_country:
-        print("\n⚠️ WARNING: Origin and destination country are the same.")
+        print("\n⚠️  WARNING: Origin and destination country are the same.")
         print(
             "Sorry, this tool is for international imports only.")
         return
@@ -80,12 +80,12 @@ def calculate_landed_cost(structured_data, hs_codes):
     )
 
     if is_mx_to_us:
-        print("✅ FTA (Free Trade Agreement) applied: Import duty waived.")
+        print("✅  FTA (Free Trade Agreement) applied: Import duty waived.")
         country_info['duty_rate'] = 0.0
 
     # Ask the user if they want to select an HS code
     hs_prompt = (
-        "\n📦 Would you like to use a sample HS code to "
+        "\n📦  Would you like to use a sample HS code to "
         "override the duty rate? (yes/no): "
     )
     use_hs = input(hs_prompt).strip().lower()
@@ -152,9 +152,9 @@ def calculate_landed_cost(structured_data, hs_codes):
     # Calculate HMF (Harbor Maintenance Fee) as a percentage of CIF
     harbor_fee_rate = float(country_info['harbor_fee'])
     hmf = cif_total * harbor_fee_rate
-    print(f"\n📊 CIF total: ${cif_total:,.2f}")
-    print(f"💵 Import Duty: ${import_duty:,.2f}")
-    print(f"📦 MPF (Processing Fee): ${mpf:,.2f}")
+    print(f"\n📊  CIF total: ${cif_total:,.2f}")
+    print(f"💵  Import Duty: ${import_duty:,.2f}")
+    print(f"📦  MPF (Processing Fee): ${mpf:,.2f}")
     print(f"⚓ HMF (Harbor Fee): ${hmf:,.2f}")
 
     # Calculate VAT (Value Added Tax) as:
@@ -167,7 +167,7 @@ def calculate_landed_cost(structured_data, hs_codes):
     landed_cost = cif_total + import_duty + mpf + hmf + vat
 
     # Print VAT and Total
-    print(f"🧾 VAT: ${vat:,.2f}")
+    print(f"🧾  VAT: ${vat:,.2f}")
     separator = "\n" + "-" * 38
     print(separator)
-    print(f"\n✅ Total Landed Cost: ${landed_cost:,.2f}\n")
+    print(f"\n✅  Total Landed Cost: ${landed_cost:,.2f}\n")
