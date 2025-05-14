@@ -5,8 +5,12 @@ def get_positive_float(prompt):
     Repeats until the user provides valid float input ≥ 0.
     """
     while True:
+        user_input = input(prompt)
+        if user_input.lower() == 'exit':
+            print("\n👋 Exiting calculator. Goodbye!")
+            return None
         try:
-            value = float(input(prompt))
+            value = float(user_input)
             if value < 0:
                 print("\nPlease enter a non-negative number.")
             else:
@@ -23,7 +27,8 @@ def calculate_landed_cost(structured_data, hs_codes):
     and optional HS code overrides.
     """
     print("\n👋 Welcome to the Import Duty Calculator!")
-    print("📦 Please note that thhis tool is for U.S. imports only.")
+    print("📦 Please note that this tool is for U.S. imports only.")
+    print('💡 Type "exit" at any prompt to leave the calculator.')
 
     # Prompt user input
     print("\n🌍 Available countries:")
@@ -84,8 +89,13 @@ def calculate_landed_cost(structured_data, hs_codes):
         "override the duty rate? (yes/no): "
     )
     use_hs = input(hs_prompt).strip().lower()
+    if use_hs == 'exit':
+        print("\nExiting calculator. Goodbye!")
+        return
+    elif use_hs in ['no', 'n']:
+        print("\nℹ️ Continuing without HS code override.")
 
-    if use_hs in ['yes', 'y', 'ok', 'sure']:
+    elif use_hs in ['yes', 'y', 'ok', 'sure']:
         print("\nAvailable HS codes to use:")
         for index, hs in enumerate(hs_codes):
             desc = hs['description']
@@ -95,7 +105,13 @@ def calculate_landed_cost(structured_data, hs_codes):
 
         # Let user select HS code
         try:
-            select_index = int(input("\nHS code number (e.g. 1): "))
+            select_index = input(
+            "\nHS code number (e.g. 1 or type 'exit'): "
+             ).strip()
+            if select_index.lower() == 'exit':
+                print("\nExiting calculator. Goodbye!")
+                return
+            select_index = int(select_index)
             if 1 <= select_index <= len(hs_codes):
                 selected_hs = hs_codes[select_index - 1]
                 country_info['duty_rate'] = float(selected_hs['duty_rate'])
@@ -108,10 +124,19 @@ def calculate_landed_cost(structured_data, hs_codes):
             print(
                 "Invalid selection. Using default duty rate.")
 
+    else:
+        print("\nUnrecognized response. Proceeding without HS override.")
+
     # Ask for product cost inputs
     product_value = get_positive_float("\n💰 Enter product value (in USD): ")
+    if product_value is None:
+        return
     shipping_cost = get_positive_float("🚢 Enter shipping cost (in USD): ")
+    if shipping_cost is None:
+        return
     insurance_cost = get_positive_float("🛡️ Enter insurance cost (in USD): ")
+    if insurance_cost is None:
+        return
 
     # Calculating CIF (Cost of product + Insurance + Freight)
     cif_total = product_value + shipping_cost + insurance_cost

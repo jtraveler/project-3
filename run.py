@@ -18,5 +18,5 @@ while True:
         "\nWould you like to calculate another shipment? (yes/no): "
         ).strip()
     if again not in ['yes', 'y', 'ok', 'sure']:
-        print("Thanks for using the Import Duty Calculator. Goodbye!")
+        print("\nThanks for using the Import Duty Calculator. Goodbye!\n")
         break
